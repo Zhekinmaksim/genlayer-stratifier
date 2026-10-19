@@ -134,7 +134,7 @@ class Stratifier(gl.Contract):
         _require(case_id not in self.cases, "ID_ALREADY_USED")
         reviewer_address = Address(reviewer)
         _require(reviewer_address != gl.message.sender_address, "REVIEWER_IS_SUBMITTER")
-        _require(reviewer_address != Address.ZERO, "REVIEWER_IS_ZERO")
+        _require(reviewer_address != Address("0x0000000000000000000000000000000000000000"), "REVIEWER_IS_ZERO")
         names = [_one_line(x, MAX_TIER_NAME_LEN) for x in tier_names]
         rules = [_one_line(x, MAX_TIER_RULE_LEN) for x in tier_rules]
         _require(len(names) == len(rules), "TIER_LENGTH_MISMATCH")

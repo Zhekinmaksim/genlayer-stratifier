@@ -10,7 +10,6 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 QUORUM = ROOT.name == "genlayer-quorum"
 class Address(str):
     pass
-Address.ZERO = Address("0x" + "0" * 40)
 class Storage:
     @classmethod
     def __class_getitem__(cls, _):
@@ -58,6 +57,7 @@ ns = dict(gl=gl, Address=Address, TreeMap=Storage, DynArray=Storage,
 source = (ROOT / "contract.py").read_text()
 assert source.splitlines()[0].startswith('# { "Depends":')
 assert source.splitlines()[1] == ""
+assert "Address.ZERO" not in source
 exec(compile(source.replace("from genlayer import *", ""), str(ROOT / "contract.py"), "exec"), ns)
 Contract = ns["Quorum" if QUORUM else "Stratifier"]
 
