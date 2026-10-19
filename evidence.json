@@ -1,0 +1,227 @@
+{
+  "contract": "Stratifier",
+  "verified_on": "2026-10-19",
+  "network": "studionet",
+  "chain_id": 61999,
+  "repository": "https://github.com/Zhekinmaksim/genlayer-stratifier",
+  "source_commit": "55c28ffe7abe9535685b25f9d3ab3a6bf63e4a0c",
+  "source_sha256": "45258ac7b3e9568e91f5b15e5a10ac877ddfbc764c21d418dae4ce23fb7286c8",
+  "address": "0x1cD21cF74F0A429ca8889538aa75efDCeA5a9566",
+  "deployment": {
+    "transaction": "0xe94709128724af404539023a4930e1d7833aaa17ec17c073ed9a9423b65530f9",
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "consensus": "MAJORITY_AGREE",
+    "leader_only": false,
+    "sender": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+  },
+  "local_test_groups": {
+    "passed": 10,
+    "total": 10,
+    "mocked": true,
+    "hash_stub": "SHA3-256, not SDK Keccak256"
+  },
+  "sdk_validation": "genvm-linter 0.11.0 pass without warnings; ABI extracted",
+  "test_accounts": {
+    "creator": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+    "counterparty": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "same_controller": true
+  },
+  "cases": [
+    {
+      "id": "stratifier-middle-001",
+      "open_args": [
+        "stratifier-middle-001",
+        "0x4988285d5a05da3a1827f21330fdf14d9f81d4c9",
+        [
+          "High",
+          "Medium",
+          "Low"
+        ],
+        [
+          "The incident caused loss of stored customer data.",
+          "The incident prevented customers from signing in.",
+          "The incident caused a visible cosmetic defect."
+        ]
+      ],
+      "subject": "Customers could not sign in for ten minutes. No stored customer data was lost. A visible cosmetic defect was also present.",
+      "expected": {
+        "outcome": 1,
+        "assigned_tier": 1,
+        "gate_mask": 6,
+        "below_all": false
+      },
+      "transactions": {
+        "open_case": "0x781f4130e9192af3cf2f783dd58ea788766a710119fae7fe2a5949a58be67509",
+        "countersign": "0xd077ed2c867a3eb2d78ffb1beb173a953e69ec6a7232877b72ed334aa94ac5e3",
+        "submit_subject": "0x5c794f415eae4dce5519f0b2a8b7be7d90f5002d8b8535f557d0358f7e27a759",
+        "assign": "0xf1f3c1c3cfe2c44113e9135d7c72af2db2868f3d46f2c7c347ecb621c1b21729"
+      },
+      "commitment": "0x758124408c8a0ae42df897d5b2571aa405ed0271f70b29664c1b2ba46a507f13",
+      "result": {
+        "assigned_tier": 1,
+        "below_all": false,
+        "case_id": "stratifier-middle-001",
+        "countersigned": true,
+        "domain": "stratifier-result-v1",
+        "gate_mask": 6,
+        "ladder_hash": "0x758124408c8a0ae42df897d5b2571aa405ed0271f70b29664c1b2ba46a507f13",
+        "outcome": 1,
+        "reason": "assigned",
+        "result_hash": "0x4f064c49283a603690dc7d126232ae2a8816ed098d020293b4468d5890769299",
+        "reviewer": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "subject_hash": "0x0953662fb41e83cb832cb90c15a1f3a5fc4969fe1999a8c197312edf5970486f",
+        "submitter": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      },
+      "matches_expected": true,
+      "countersign_receipt": {
+        "transaction": "0xd077ed2c867a3eb2d78ffb1beb173a953e69ec6a7232877b72ed334aa94ac5e3",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9"
+      },
+      "evaluation_receipt": {
+        "transaction": "0xf1f3c1c3cfe2c44113e9135d7c72af2db2868f3d46f2c7c347ecb621c1b21729",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "sender": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      }
+    },
+    {
+      "id": "stratifier-top-001",
+      "open_args": [
+        "stratifier-top-001",
+        "0x4988285d5a05da3a1827f21330fdf14d9f81d4c9",
+        [
+          "High",
+          "Medium",
+          "Low"
+        ],
+        [
+          "The incident caused loss of stored customer data.",
+          "The incident prevented customers from signing in.",
+          "The incident caused a visible cosmetic defect."
+        ]
+      ],
+      "subject": "The incident deleted stored customer data. Customers could not sign in. A visible cosmetic defect was present.",
+      "expected": {
+        "outcome": 1,
+        "assigned_tier": 0,
+        "gate_mask": 7,
+        "below_all": false
+      },
+      "transactions": {
+        "open_case": "0xbc7067b30bec875b0eec493dd1b9beeab00bccd7b053cf2ed22b36e6c8f691ee",
+        "countersign": "0xef1727559b7b778ecb11b868542a655565929ffecdf7635981e893aa4a862a32",
+        "submit_subject": "0xcaad1968ecd0007835e948ebf3fb8696965c2142c6ee404bcc14186b128e09ae",
+        "assign": "0x19e8dd431cf058e18af6a2bd7b996e27686d11ae5c1902799c8ed919904c2a3a"
+      },
+      "commitment": "0x758124408c8a0ae42df897d5b2571aa405ed0271f70b29664c1b2ba46a507f13",
+      "result": {
+        "assigned_tier": 0,
+        "below_all": false,
+        "case_id": "stratifier-top-001",
+        "countersigned": true,
+        "domain": "stratifier-result-v1",
+        "gate_mask": 7,
+        "ladder_hash": "0x758124408c8a0ae42df897d5b2571aa405ed0271f70b29664c1b2ba46a507f13",
+        "outcome": 1,
+        "reason": "assigned",
+        "result_hash": "0x2a20df58c622bedd6c49efa9bd16971a3557a33ce8d5eaf6be9436746b2dab35",
+        "reviewer": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "subject_hash": "0x09bbb030c03604ffb51c9d7b3a789704b852d7f15fed718f8de4e67411671110",
+        "submitter": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      },
+      "matches_expected": true,
+      "countersign_receipt": {
+        "transaction": "0xef1727559b7b778ecb11b868542a655565929ffecdf7635981e893aa4a862a32",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9"
+      },
+      "evaluation_receipt": {
+        "transaction": "0x19e8dd431cf058e18af6a2bd7b996e27686d11ae5c1902799c8ed919904c2a3a",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "sender": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      }
+    },
+    {
+      "id": "stratifier-below-001",
+      "open_args": [
+        "stratifier-below-001",
+        "0x4988285d5a05da3a1827f21330fdf14d9f81d4c9",
+        [
+          "High",
+          "Medium",
+          "Low"
+        ],
+        [
+          "The incident caused loss of stored customer data.",
+          "The incident prevented customers from signing in.",
+          "The incident caused a visible cosmetic defect."
+        ]
+      ],
+      "subject": "An internal maintenance note was updated. No customer data was lost, customers could sign in normally, and there was no cosmetic defect.",
+      "expected": {
+        "outcome": 1,
+        "assigned_tier": null,
+        "gate_mask": 0,
+        "below_all": true
+      },
+      "transactions": {
+        "open_case": "0x5c048b3221b57132aaa9cceeb0eb1586a4abd7f84b368182c3a4fb89ee05f110",
+        "countersign": "0xfca46c9b76730d70ca1ae9bc001129551e747e3463da3dcb905b750308b8b546",
+        "submit_subject": "0xaef4b8a390c190bfc48f1f486fca6b31aebe2d75ff1270a52941df26a5225759",
+        "assign": "0xc29922cc5e42baf34399efe7d0b158ec2fe2c7b6e3063d64e57db878799d0bae"
+      },
+      "commitment": "0x758124408c8a0ae42df897d5b2571aa405ed0271f70b29664c1b2ba46a507f13",
+      "result": {
+        "assigned_tier": null,
+        "below_all": true,
+        "case_id": "stratifier-below-001",
+        "countersigned": true,
+        "domain": "stratifier-result-v1",
+        "gate_mask": 0,
+        "ladder_hash": "0x758124408c8a0ae42df897d5b2571aa405ed0271f70b29664c1b2ba46a507f13",
+        "outcome": 1,
+        "reason": "below-ladder",
+        "result_hash": "0x91a671bf6908402a0b924acf2054388980544ca975b09aa66e04892b65839036",
+        "reviewer": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "subject_hash": "0xc67e5aa9b2de2c9dd8aa0a22b33eacb006b6f952389236d4b974354b78a50a21",
+        "submitter": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      },
+      "matches_expected": true,
+      "countersign_receipt": {
+        "transaction": "0xfca46c9b76730d70ca1ae9bc001129551e747e3463da3dcb905b750308b8b546",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9"
+      },
+      "evaluation_receipt": {
+        "transaction": "0xc29922cc5e42baf34399efe7d0b158ec2fe2c7b6e3063d64e57db878799d0bae",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "leader_only": false,
+        "sender": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      }
+    }
+  ],
+  "limits": "Supplied text is not externally authenticated. Comparative uses an LLM comparator. Models can agree incorrectly. No guarantee of prompt-injection resistance, external audit or portal acceptance.",
+  "prepublication_correction": {
+    "address": "0xb908ABd0203342393d8E7983Cbef663437671B2d",
+    "transaction": "0xacc935def18a3122eccd4944d9bf2714ef81581dc63489e823bdfbd63097f23a",
+    "reason": "Address.ZERO unavailable in pinned runtime; replaced before publication"
+  }
+}
